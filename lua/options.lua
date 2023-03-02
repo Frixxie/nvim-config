@@ -1,4 +1,4 @@
-vim.opt.undodir = vim.fn.stdpath("config") .. "/undodir"
+vim.opt.undodir = vim.fn.stdpath("config") .. "~/.undodir"
 vim.opt.undofile = true
 
 vim.g.mapleader = " "
@@ -24,6 +24,9 @@ vim.opt.splitright = true
 vim.opt.mouse = "a"
 
 vim.g.latex_to_unicode_tab = "off"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.termguicolors = true
 
 vim.cmd([[colorscheme onedark]])
 
