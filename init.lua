@@ -39,7 +39,7 @@ require("lazy").setup({
 require("options")
 require("keybindings")
 
-require("config/luabar")
+require("config/lualine")
 require("config/nvimtree")
 require("config/telescope")
 require("config/lsp")
