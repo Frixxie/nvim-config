@@ -33,6 +33,7 @@ require("lazy").setup({
   "nvim-telescope/telescope.nvim",
   "mfussenegger/nvim-dap",
   "tpope/vim-fugitive",
+  "lewis6991/gitsigns.nvim",
 })
 
 require("options")
@@ -46,3 +47,4 @@ require("config/cmp")
 require("config/treesitter")
 require("config/autopairs")
 require("config/formatter")
+require("config/gitsigns")
