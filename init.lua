@@ -34,6 +34,7 @@ require("lazy").setup({
   "mfussenegger/nvim-dap",
   "tpope/vim-fugitive",
   "lewis6991/gitsigns.nvim",
+  "rust-lang/rust.vim",
 })
 
 require("options")
