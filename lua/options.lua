@@ -24,14 +24,10 @@ vim.opt.splitright = true
 vim.opt.mouse = "a"
 
 vim.g.latex_to_unicode_tab = "off"
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 vim.g.termguicolors = true
 
 vim.cmd([[colorscheme onedark]])
 
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true}") -- disabled in visual mode
-
-vim.cmd([[au BufRead,BufNewFile *.h setfiletype c]])
 
 vim.diagnostic.show()
