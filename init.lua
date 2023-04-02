@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "windwp/nvim-autopairs",
   "nvim-lualine/lualine.nvim",
   "nvim-tree/nvim-web-devicons",
   "nvim-tree/nvim-tree.lua",
@@ -35,6 +34,7 @@ require("lazy").setup({
   "tpope/vim-fugitive",
   "lewis6991/gitsigns.nvim",
   "rust-lang/rust.vim",
+  { 'echasnovski/mini.nvim', version = false },
 })
 
 require("options")
@@ -46,6 +46,6 @@ require("config/telescope")
 require("config/lsp")
 require("config/cmp")
 require("config/treesitter")
-require("config/autopairs")
 require("config/formatter")
 require("config/gitsigns")
+require("config/mini")
