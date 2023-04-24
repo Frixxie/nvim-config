@@ -5,6 +5,7 @@ vim.keymap.set("n", "<leader>n", ":noh<cr>", {})
 vim.keymap.set("n", "<leader>w", ":w!<cr>", {})
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", {})
 vim.keymap.set("n", "ff", ":Format<cr>", {})
+vim.keymap.set("n", "<leader>o", ":terminal<cr>", {})
 
 -- For copy paste
 vim.keymap.set("v", "<C-c>", '"+ygv', {})
