@@ -26,6 +26,8 @@ vim.opt.mouse = "a"
 vim.g.latex_to_unicode_tab = "off"
 vim.g.termguicolors = true
 
+vim.g.copilot_enabled = false
+
 vim.cmd([[colorscheme onedark]])
 
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true}") -- disabled in visual mode
