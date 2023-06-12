@@ -23,6 +23,8 @@ vim.opt.splitright = true
 
 vim.opt.mouse = "a"
 
+vim.cmd("let test#csharp#runner = 'dotnettest'")
+
 vim.g.latex_to_unicode_tab = "off"
 vim.g.termguicolors = true
 

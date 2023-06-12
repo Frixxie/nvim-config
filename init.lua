@@ -31,7 +31,10 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim",
   "nvim-telescope/telescope.nvim",
   "mfussenegger/nvim-dap",
+  "rcarriga/nvim-dap-ui",
+  "folke/neodev.nvim",
   "tpope/vim-fugitive",
+  "vim-test/vim-test",
   "lewis6991/gitsigns.nvim",
   "rust-lang/rust.vim",
   { 'echasnovski/mini.nvim', version = false },
@@ -41,6 +44,7 @@ require("lazy").setup({
 require("options")
 require("keybindings")
 
+require("config/dap")
 require("config/lualine")
 require("config/nvimtree")
 require("config/telescope")
