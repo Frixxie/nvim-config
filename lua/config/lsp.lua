@@ -43,6 +43,7 @@ require("lspconfig").pylsp.setup({
 require("lspconfig")["csharp_ls"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
+    filetypes = {"cs", "csx"}
 })
 require("lspconfig")["texlab"].setup({
     on_attach = on_attach,
