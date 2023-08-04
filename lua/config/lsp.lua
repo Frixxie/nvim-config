@@ -82,8 +82,6 @@ require("lspconfig")["tailwindcss"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
-require'lspconfig'.svelte.setup{}
-require'lspconfig'.tsserver.setup{}
 require 'lspconfig'.lua_ls.setup {
     settings = {
         Lua = {
