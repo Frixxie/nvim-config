@@ -19,6 +19,7 @@ require("lazy").setup({
   "godlygeek/tabular",
   "mbbill/undotree",
   "tpope/vim-commentary",
+  "tpope/vim-dispatch",
   "neovim/nvim-lspconfig",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",

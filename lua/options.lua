@@ -24,11 +24,17 @@ vim.opt.splitright = true
 vim.opt.mouse = "a"
 
 vim.cmd("let test#csharp#runner = 'dotnettest'")
+vim.cmd("let test#strategy = 'dispatch'")
 
 vim.g.latex_to_unicode_tab = "off"
 vim.g.termguicolors = true
 
 vim.g.copilot_enabled = false
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = {"*.cs"},
+    command = "compiler dotnet",
+})
 
 vim.cmd([[colorscheme onedark]])
 
