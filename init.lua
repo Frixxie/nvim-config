@@ -40,6 +40,7 @@ require("lazy").setup({
   "rust-lang/rust.vim",
   { 'echasnovski/mini.nvim', version = false },
   "github/copilot.vim",
+  "catppuccin/nvim",
 })
 
 require("options")
