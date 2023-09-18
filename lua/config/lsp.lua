@@ -49,15 +49,15 @@ require("lspconfig")["texlab"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
-require("lspconfig")["grammarly"].setup({
-    on_attach = on_attach,
-    filetypes = { "tex", "markdown" },
-    capabilities = capabilities,
-})
-require("lspconfig")["marksman"].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
+-- require("lspconfig")["grammarly"].setup({
+--     on_attach = on_attach,
+--     filetypes = { "tex", "markdown" },
+--     capabilities = capabilities,
+-- })
+-- require("lspconfig")["marksman"].setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- })
 require("lspconfig")["clangd"].setup({
     on_attach = on_attach,
     capabilities = capabilities,

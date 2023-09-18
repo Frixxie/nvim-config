@@ -41,6 +41,7 @@ require("lazy").setup({
   { 'echasnovski/mini.nvim', version = false },
   "github/copilot.vim",
   "catppuccin/nvim",
+  "folke/trouble.nvim",
 })
 
 require("options")
