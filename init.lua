@@ -15,11 +15,8 @@ require("lazy").setup({
   "nvim-lualine/lualine.nvim",
   "nvim-tree/nvim-web-devicons",
   "nvim-tree/nvim-tree.lua",
-  "joshdick/onedark.vim",
   "godlygeek/tabular",
   "mbbill/undotree",
-  "tpope/vim-commentary",
-  "tpope/vim-dispatch",
   "neovim/nvim-lspconfig",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
@@ -35,13 +32,15 @@ require("lazy").setup({
   "rcarriga/nvim-dap-ui",
   "folke/neodev.nvim",
   "tpope/vim-fugitive",
+  "tpope/vim-commentary",
+  "tpope/vim-dispatch",
+  "tpope/vim-dadbod",
   "vim-test/vim-test",
   "lewis6991/gitsigns.nvim",
   "rust-lang/rust.vim",
   { 'echasnovski/mini.nvim', version = false },
   "github/copilot.vim",
   "catppuccin/nvim",
-  "folke/trouble.nvim",
 })
 
 require("options")
