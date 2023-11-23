@@ -40,6 +40,7 @@ require("lspconfig").pylsp.setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
+
 require("lspconfig")["denols"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -54,7 +55,7 @@ require("lspconfig")["denols"].setup({
 require("lspconfig")["omnisharp"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "omnisharp" },
+    cmd = { "dotnet", "/Users/fredrik/.vscode/extensions/ms-dotnettools.csharp-2.10.28-darwin-arm64/.omnisharp/1.39.10-net6.0/OmniSharp.dll" },
 
     -- Enables support for reading code style, naming convention and analyzer
     -- settings from .editorconfig.
@@ -91,7 +92,6 @@ require("lspconfig")["omnisharp"].setup({
     -- true
     analyze_open_documents_only = false,
 })
-
 require("lspconfig")["texlab"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
