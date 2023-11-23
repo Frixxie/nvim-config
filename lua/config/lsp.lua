@@ -44,11 +44,13 @@ require("lspconfig")["denols"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
+
 -- require("lspconfig")["csharp_ls"].setup({
 --     on_attach = on_attach,
 --     capabilities = capabilities,
 --     filetypes = {"cs", "csx"}
 -- })
+
 require("lspconfig")["omnisharp"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -89,6 +91,7 @@ require("lspconfig")["omnisharp"].setup({
     -- true
     analyze_open_documents_only = false,
 })
+
 require("lspconfig")["texlab"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
