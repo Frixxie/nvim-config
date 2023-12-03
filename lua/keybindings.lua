@@ -1,6 +1,6 @@
 vim.keymap.set("n", "<silent><CR>", ":nohlsearch<CR>", {})
 vim.keymap.set("n", "<leader>r<space>", "mm:%s/[\t ]*$//g<CR>:noh<CR>'mzz", {})
-vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<cr>", {})
+vim.keymap.set("n", "<leader>t", ":Oil<cr>", {})
 vim.keymap.set("n", "<leader>n", ":noh<cr>", {})
 vim.keymap.set("n", "<leader>w", ":w!<cr>", {})
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", {})
