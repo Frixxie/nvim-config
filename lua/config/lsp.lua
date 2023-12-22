@@ -55,11 +55,11 @@ require("lspconfig").pylsp.setup({
 require("lspconfig")["omnisharp"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "dotnet", "/Users/fredrik/.vscode/extensions/ms-dotnettools.csharp-2.10.28-darwin-arm64/.omnisharp/1.39.10-net6.0/OmniSharp.dll" },
+    cmd = { "dotnet", "/Users/fredrik/opts/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
 
     -- Enables support for reading code style, naming convention and analyzer
     -- settings from .editorconfig.
-    enable_editorconfig_support = true,
+    enable_editorconfig_support = false,
 
     -- If true, MSBuild project system will only load projects for files that
     -- were opened in the editor. This setting is useful for big C# codebases
@@ -82,7 +82,7 @@ require("lspconfig")["omnisharp"].setup({
     -- have a negative impact on initial completion responsiveness,
     -- particularly for the first few completion sessions after opening a
     -- solution.
-    enable_import_completion = true,
+    enable_import_completion = false,
 
     -- Specifies whether to include preview versions of the .NET SDK when
     -- determining which version to use for project loading.
@@ -118,6 +118,10 @@ require("lspconfig")["tsserver"].setup({
     capabilities = capabilities,
 })
 require("lspconfig")["rust_analyzer"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+require("lspconfig")["hls"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })

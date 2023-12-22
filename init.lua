@@ -46,6 +46,7 @@ require("lazy").setup({
     { 'echasnovski/mini.nvim', version = false },
     "github/copilot.vim",
     "catppuccin/nvim",
+    "chentoast/marks.nvim"
 })
 
 require("options")
@@ -61,3 +62,4 @@ require("config/treesitter")
 require("config/formatter")
 require("config/gitsigns")
 require("config/mini")
+require("config/marks")
