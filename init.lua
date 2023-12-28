@@ -46,7 +46,9 @@ require("lazy").setup({
     { 'echasnovski/mini.nvim', version = false },
     "github/copilot.vim",
     "catppuccin/nvim",
-    "chentoast/marks.nvim"
+    "chentoast/marks.nvim",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim"
 })
 
 require("options")
