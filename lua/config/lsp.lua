@@ -36,16 +36,16 @@ require("mason-lspconfig").setup({
         "hls",
         "denols",
         "svelte",
-        "dockerfile-language-server",
-        "docker-compose-language-server"
+        "dockerls",
+        "docker_compose_language_service"
     }
 })
 
-require("lspconfig")["dockerfile-language-server"].setup({
+require("lspconfig")["dockerls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
-require("lspconfig")["docker-compose-language-server"].setup({
+require("lspconfig")["docker_compose_language_service"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
