@@ -37,10 +37,15 @@ require("mason-lspconfig").setup({
         "denols",
         "svelte",
         "dockerls",
-        "docker_compose_language_service"
+        "docker_compose_language_service",
+        "tailwindcss"
     }
 })
 
+require("lspconfig")["tailwindcss"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
 require("lspconfig")["dockerls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
