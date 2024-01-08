@@ -7,6 +7,7 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", {})
 vim.keymap.set("n", "ff", ":Format<cr>", {})
 vim.keymap.set("n", "<leader>o", ":terminal<cr>", {})
 vim.keymap.set("n", "<leader>cp", ":Copilot enable<cr>", {})
+vim.keymap.set("n", "<leader>g", ":G<cr>", {})
 
 -- For copy paste
 vim.keymap.set("v", "<C-c>", '"+ygv', {})
