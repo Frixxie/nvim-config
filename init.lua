@@ -48,7 +48,16 @@ require("lazy").setup({
     "catppuccin/nvim",
     "chentoast/marks.nvim",
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim"
+    "williamboman/mason-lspconfig.nvim",
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/neotest-vim-test",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter"
+        }
+    }
 })
 
 require("options")
