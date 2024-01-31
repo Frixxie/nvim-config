@@ -24,8 +24,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, bufopts)
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
@@ -38,47 +36,46 @@ require("mason-lspconfig").setup({
         "svelte",
         "dockerls",
         "docker_compose_language_service",
-        "tailwindcss"
+        "tailwindcss",
+        "tsserver",
+        "sqlls",
+        "csharp_ls"
     }
 })
 
+require("lspconfig")["sqlls"].setup({
+    on_attach = on_attach,
+})
+require("lspconfig")["tsserver"].setup({
+    on_attach = on_attach,
+})
 require("lspconfig")["tailwindcss"].setup({
-    capabilities = capabilities,
     on_attach = on_attach,
 })
 require("lspconfig")["dockerls"].setup({
-    capabilities = capabilities,
     on_attach = on_attach,
 })
 require("lspconfig")["docker_compose_language_service"].setup({
-    capabilities = capabilities,
     on_attach = on_attach,
 })
 require("lspconfig")["clangd"].setup({
-    capabilities = capabilities,
     on_attach = on_attach,
 })
-require("lspconfig")["denols"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
+-- require("lspconfig")["denols"].setup({
+--     on_attach = on_attach,
+-- })
 require("lspconfig")["svelte"].setup({
-    capabilities = capabilities,
     on_attach = on_attach,
 })
 require("lspconfig")["hls"].setup({
-    capabilities = capabilities,
     on_attach = on_attach,
 })
 require("lspconfig")["lua_ls"].setup({
-    capabilities = capabilities,
     on_attach = on_attach,
 })
-require("lspconfig")["omnisharp"].setup({
-    capabilities = capabilities,
+require("lspconfig")["csharp_ls"].setup({
     on_attach = on_attach,
 })
 require("lspconfig")["rust_analyzer"].setup({
-    capabilities = capabilities,
     on_attach = on_attach,
 })

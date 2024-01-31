@@ -23,11 +23,11 @@ require("lazy").setup({
     "godlygeek/tabular",
     "mbbill/undotree",
     "neovim/nvim-lspconfig",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/nvim-cmp",
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
+    -- "hrsh7th/cmp-nvim-lsp",
+    -- "hrsh7th/cmp-buffer",
+    -- "hrsh7th/nvim-cmp",
+    -- "L3MON4D3/LuaSnip",
+    -- "saadparwaiz1/cmp_luasnip",
     "mhartington/formatter.nvim",
     "nvim-treesitter/nvim-treesitter",
     "nvim-lua/popup.nvim",
@@ -48,16 +48,7 @@ require("lazy").setup({
     "catppuccin/nvim",
     "chentoast/marks.nvim",
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    {
-        "nvim-neotest/neotest",
-        dependencies = {
-            "nvim-neotest/neotest-vim-test",
-            "nvim-lua/plenary.nvim",
-            "antoinemadec/FixCursorHold.nvim",
-            "nvim-treesitter/nvim-treesitter"
-        }
-    }
+    "williamboman/mason-lspconfig.nvim"
 })
 
 require("options")
