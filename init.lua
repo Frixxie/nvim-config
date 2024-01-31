@@ -23,11 +23,6 @@ require("lazy").setup({
     "godlygeek/tabular",
     "mbbill/undotree",
     "neovim/nvim-lspconfig",
-    -- "hrsh7th/cmp-nvim-lsp",
-    -- "hrsh7th/cmp-buffer",
-    -- "hrsh7th/nvim-cmp",
-    -- "L3MON4D3/LuaSnip",
-    -- "saadparwaiz1/cmp_luasnip",
     "mhartington/formatter.nvim",
     "nvim-treesitter/nvim-treesitter",
     "nvim-lua/popup.nvim",
@@ -59,7 +54,6 @@ require("config/oil")
 require("config/lualine")
 require("config/telescope")
 require("config/lsp")
-require("config/cmp")
 require("config/treesitter")
 require("config/formatter")
 require("config/gitsigns")
