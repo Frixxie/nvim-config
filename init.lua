@@ -43,7 +43,8 @@ require("lazy").setup({
     "catppuccin/nvim",
     "chentoast/marks.nvim",
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim"
+    "williamboman/mason-lspconfig.nvim",
+    "ibhagwan/fzf-lua"
 })
 
 require("options")
@@ -52,7 +53,7 @@ require("keybindings")
 require("config/dap")
 require("config/oil")
 require("config/lualine")
-require("config/telescope")
+require("config/fzf")
 require("config/lsp")
 require("config/treesitter")
 require("config/formatter")
