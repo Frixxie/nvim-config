@@ -44,7 +44,8 @@ require("lazy").setup({
     "chentoast/marks.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "ibhagwan/fzf-lua"
+    "ibhagwan/fzf-lua",
+    "sindrets/diffview.nvim"
 })
 
 require("options")

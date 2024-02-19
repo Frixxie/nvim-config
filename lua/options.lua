@@ -31,13 +31,13 @@ vim.g.termguicolors = true
 
 vim.g.copilot_enabled = false
 
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-    pattern = {"*.cs"},
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = { "*.cs" },
     command = "compiler dotnet",
 })
 
 vim.g.markdown_fenced_languages = {
-  "ts=typescript"
+    "ts=typescript"
 }
 
 vim.cmd([[colorscheme catppuccin-mocha]])
