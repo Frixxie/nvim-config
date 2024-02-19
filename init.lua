@@ -27,7 +27,6 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     "nvim-lua/popup.nvim",
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
     "mfussenegger/nvim-dap",
     "rcarriga/nvim-dap-ui",
     "folke/neodev.nvim",
