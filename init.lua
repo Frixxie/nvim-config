@@ -44,7 +44,8 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "ibhagwan/fzf-lua",
-    "sindrets/diffview.nvim"
+    "sindrets/diffview.nvim",
+    "otavioschwanck/arrow.nvim"
 })
 
 require("options")
@@ -60,3 +61,4 @@ require("config/formatter")
 require("config/gitsigns")
 require("config/mini")
 require("config/marks")
+require("config/arrow")
