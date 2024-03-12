@@ -45,37 +45,49 @@ require("mason-lspconfig").setup({
 
 require("lspconfig")["sqlls"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["tsserver"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["tailwindcss"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["dockerls"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["docker_compose_language_service"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["clangd"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 -- require("lspconfig")["denols"].setup({
 --     on_attach = on_attach,
+-- omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 -- })
 require("lspconfig")["svelte"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["hls"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["lua_ls"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["omnisharp"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["rust_analyzer"].setup({
     on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
