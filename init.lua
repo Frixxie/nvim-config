@@ -27,8 +27,13 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     "nvim-lua/popup.nvim",
     "nvim-lua/plenary.nvim",
-    "mfussenegger/nvim-dap",
-    "rcarriga/nvim-dap-ui",
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "rcarriga/nvim-dap-ui",
+            "nvim-neotest/nvim-nio",
+        },
+    },
     "folke/neodev.nvim",
     "tpope/vim-fugitive",
     "tpope/vim-commentary",
@@ -52,6 +57,7 @@ require("options")
 require("keybindings")
 
 require("config/dap")
+require("config/neodev")
 require("config/oil")
 require("config/lualine")
 require("config/fzf")

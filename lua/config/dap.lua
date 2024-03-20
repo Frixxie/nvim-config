@@ -10,6 +10,7 @@
 
 local dap, dapui = require("dap"), require("dapui")
 
+
 dap.adapters.coreclr = {
     type = 'executable',
     command = 'netcoredbg',
@@ -190,7 +191,3 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
 
--- require("neodev").setup({
---   library = { plugins = { "nvim-dap-ui" }, types = true },
---   ...
--- })
