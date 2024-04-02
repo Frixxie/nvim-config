@@ -40,7 +40,6 @@ require("lazy").setup({
     "tpope/vim-dispatch",
     "tpope/vim-dadbod",
     "vim-test/vim-test",
-    "lewis6991/gitsigns.nvim",
     "rust-lang/rust.vim",
     { 'echasnovski/mini.nvim', version = false },
     "github/copilot.vim",
@@ -64,7 +63,6 @@ require("config/fzf")
 require("config/lsp")
 require("config/treesitter")
 require("config/formatter")
-require("config/gitsigns")
 require("config/mini")
 require("config/marks")
 require("config/arrow")
