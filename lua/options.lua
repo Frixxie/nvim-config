@@ -3,6 +3,8 @@ vim.opt.undofile = true
 
 vim.g.mapleader = " "
 
+vim.g.have_nerd_font = true
+
 vim.opt.number = true
 vim.opt.rnu = true
 
@@ -20,6 +22,10 @@ vim.opt.inccommand = "split"
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
 vim.opt.mouse = "a"
 

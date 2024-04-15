@@ -43,6 +43,10 @@ require("mason-lspconfig").setup({
     }
 })
 
+require("lspconfig")["helm_ls"].setup({
+    on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+})
 require("lspconfig")["sqlls"].setup({
     on_attach = on_attach,
     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'

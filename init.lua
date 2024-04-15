@@ -41,15 +41,19 @@ require("lazy").setup({
     "tpope/vim-dadbod",
     "vim-test/vim-test",
     "rust-lang/rust.vim",
-    { 'echasnovski/mini.nvim', version = false },
+    { 'echasnovski/mini.nvim',    version = false },
     "github/copilot.vim",
     "catppuccin/nvim",
     "chentoast/marks.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "ibhagwan/fzf-lua",
-    "sindrets/diffview.nvim",
-    "otavioschwanck/arrow.nvim"
+    "otavioschwanck/arrow.nvim",
+    { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    }
 })
 
 require("options")
@@ -66,3 +70,4 @@ require("config/formatter")
 require("config/mini")
 require("config/marks")
 require("config/arrow")
+require("config.trouble")
