@@ -95,3 +95,7 @@ require("lspconfig")["rust_analyzer"].setup({
     on_attach = on_attach,
     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
+require("lspconfig")["ocamllsp"].setup({
+    on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+})
