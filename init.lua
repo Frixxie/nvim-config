@@ -44,11 +44,9 @@ require("lazy").setup({
     { 'echasnovski/mini.nvim',    version = false },
     "github/copilot.vim",
     "catppuccin/nvim",
-    "chentoast/marks.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "ibhagwan/fzf-lua",
-    "otavioschwanck/arrow.nvim",
     { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
     {
         "folke/trouble.nvim",
@@ -68,6 +66,4 @@ require("config/lsp")
 require("config/treesitter")
 require("config/formatter")
 require("config/mini")
-require("config/marks")
-require("config/arrow")
-require("config.trouble")
+require("config/trouble")
