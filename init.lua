@@ -51,6 +51,13 @@ require("lazy").setup({
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    {
+        "otavioschwanck/arrow.nvim",
+        opts = {
+            show_icons = true,
+            leader_key = ';',        -- Recommended to be a single key
+        }
     }
 })
 
