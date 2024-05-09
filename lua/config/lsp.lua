@@ -39,11 +39,16 @@ require("mason-lspconfig").setup({
         "tailwindcss",
         "tsserver",
         "sqlls",
-        "csharp_ls"
+        "csharp_ls",
+        "fsautocomplete"
     }
 })
 
 require("lspconfig")["helm_ls"].setup({
+    on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+})
+require("lspconfig")["fsautocomplete"].setup({
     on_attach = on_attach,
     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
