@@ -104,3 +104,7 @@ require("lspconfig")["ocamllsp"].setup({
     on_attach = on_attach,
     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
+require("lspconfig")["pyright"].setup({
+    on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+})
