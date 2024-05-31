@@ -15,18 +15,15 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     {
         'stevearc/oil.nvim',
-        opts = {},
-        -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
     },
-    "nvim-tree/nvim-web-devicons",
     "godlygeek/tabular",
     "mbbill/undotree",
-    "neovim/nvim-lspconfig",
     "mhartington/formatter.nvim",
     "nvim-treesitter/nvim-treesitter",
     "nvim-lua/popup.nvim",
-    "nvim-lua/plenary.nvim",
     {
         "mfussenegger/nvim-dap",
         dependencies = {
@@ -41,13 +38,37 @@ require("lazy").setup({
     "tpope/vim-dadbod",
     "vim-test/vim-test",
     "rust-lang/rust.vim",
-    { 'echasnovski/mini.nvim',    version = false },
+    {
+        'echasnovski/mini.nvim',
+        version = false
+    },
     "github/copilot.vim",
     "catppuccin/nvim",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "ibhagwan/fzf-lua",
-    { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+    {
+        "williamboman/mason.nvim",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
+        }
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build =
+                'make'
+            },
+
+        }
+    },
+    {
+        'folke/todo-comments.nvim',
+        event = 'VimEnter',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        opts = { signs = false }
+    },
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -68,9 +89,9 @@ require("config/dap")
 require("config/neodev")
 require("config/oil")
 require("config/lualine")
-require("config/fzf")
 require("config/lsp")
 require("config/treesitter")
 require("config/formatter")
+require("config/telescope")
 require("config/mini")
 require("config/trouble")

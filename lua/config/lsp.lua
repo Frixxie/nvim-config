@@ -7,20 +7,20 @@ local on_attach = function(client, bufnr)
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set("n", "gD", ":Fzf lsp_declarations<cr>")
-    vim.keymap.set("n", "gd", ":Fzf lsp_definitions<cr>")
+    vim.keymap.set("n", "gD", ":Telescope lsp_declarations<cr>")
+    vim.keymap.set("n", "gd", ":Telescope lsp_definitions<cr>")
     vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-    vim.keymap.set("n", "gi", ":Fzf lsp_implementations<cr>")
+    vim.keymap.set("n", "gi", ":Telescope lsp_implementations<cr>")
     vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
     vim.keymap.set("n", "<leader>wl", function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
-    vim.keymap.set("n", "<leader>D", ":Fzf lsp_typedef<cr>")
+    vim.keymap.set("n", "<leader>D", ":Telescope lsp_typedef<cr>")
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-    vim.keymap.set("n", "<leader>ca", ":Fzf lsp_code_actions<cr>")
-    vim.keymap.set("n", "gr", ":Fzf lsp_references<cr>")
+    vim.keymap.set("n", "<leader>ca", ":Telescope lsp_code_actions<cr>")
+    vim.keymap.set("n", "gr", ":Telescope lsp_references<cr>")
     vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, bufopts)
 end
 
