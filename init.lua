@@ -60,7 +60,7 @@ require("lazy").setup({
                 build =
                 'make'
             },
-
+            "gbrlsnchs/telescope-lsp-handlers.nvim"
         }
     },
     {

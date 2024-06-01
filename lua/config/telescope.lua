@@ -9,6 +9,7 @@ require("telescope").setup({
     }
 })
 require("telescope").load_extension('fzf')
+require("telescope").load_extension('lsp_handlers')
 
 
 local builtin = require("telescope.builtin")
