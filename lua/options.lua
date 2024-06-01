@@ -23,10 +23,6 @@ vim.opt.inccommand = "split"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
-
 vim.opt.mouse = "a"
 
 vim.cmd("let test#csharp#runner = 'dotnettest'")

@@ -13,17 +13,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     "nvim-lualine/lualine.nvim",
-    {
-        'stevearc/oil.nvim',
-        dependencies = {
-            "nvim-tree/nvim-web-devicons"
-        },
-    },
     "godlygeek/tabular",
     "mbbill/undotree",
     "mhartington/formatter.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "nvim-lua/popup.nvim",
+    "github/copilot.vim",
+    "catppuccin/nvim",
+    "folke/neodev.nvim",
+    "tpope/vim-fugitive",
+    "tpope/vim-commentary",
+    "tpope/vim-dadbod",
     {
         "mfussenegger/nvim-dap",
         dependencies = {
@@ -31,19 +30,16 @@ require("lazy").setup({
             "nvim-neotest/nvim-nio",
         },
     },
-    "folke/neodev.nvim",
-    "tpope/vim-fugitive",
-    "tpope/vim-commentary",
-    "tpope/vim-dispatch",
-    "tpope/vim-dadbod",
-    "vim-test/vim-test",
-    "rust-lang/rust.vim",
+    {
+        "vim-test/vim-test",
+        dependencies = {
+            "tpope/vim-dispatch",
+        }
+    },
     {
         'echasnovski/mini.nvim',
         version = false
     },
-    "github/copilot.vim",
-    "catppuccin/nvim",
     {
         "williamboman/mason.nvim",
         dependencies = {
@@ -60,7 +56,6 @@ require("lazy").setup({
                 build =
                 'make'
             },
-            "gbrlsnchs/telescope-lsp-handlers.nvim"
         }
     },
     {
@@ -79,6 +74,12 @@ require("lazy").setup({
             show_icons = true,
             leader_key = ';', -- Recommended to be a single key
         }
+    },
+    {
+        'stevearc/oil.nvim',
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
     }
 })
 
