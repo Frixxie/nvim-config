@@ -12,6 +12,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    {
+        "chrisgrieser/nvim-lsp-endhints",
+        event = "LspAttach",
+        opts = {}, -- required, even if empty
+    },
     "nvim-lualine/lualine.nvim",
     "godlygeek/tabular",
     "mbbill/undotree",
