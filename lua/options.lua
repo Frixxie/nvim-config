@@ -25,6 +25,8 @@ vim.opt.splitright = true
 
 vim.opt.mouse = "a"
 
+vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+
 vim.cmd("let test#csharp#runner = 'dotnettest'")
 vim.cmd("let test#strategy = 'dispatch'")
 

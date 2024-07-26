@@ -6,8 +6,7 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", {})
 vim.keymap.set("n", "ff", ":Format<cr>", {})
 vim.keymap.set("n", "<leader>o", ":Oil<cr>", {})
 vim.keymap.set("n", "<leader>cp", ":Copilot enable<cr>", {})
-vim.keymap.set("n", "<leader>g", ":G<cr>", {})
-vim.keymap.set("n", "<leader>fl", ":Fzf git_commits<cr>", {})
+vim.keymap.set("n", "<leader>g", ":tab G<cr>", {})
 vim.keymap.set("n", "<leader>tn", ":TestNearest<cr>", {})
 
 -- For copy paste
@@ -21,4 +20,4 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<leader>q", ":Fzf lsp_document_diagnostics<cr>")
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
