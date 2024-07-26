@@ -8,6 +8,7 @@ vim.keymap.set("n", "<leader>o", ":Oil<cr>", {})
 vim.keymap.set("n", "<leader>cp", ":Copilot enable<cr>", {})
 vim.keymap.set("n", "<leader>g", ":tab G<cr>", {})
 vim.keymap.set("n", "<leader>tn", ":TestNearest<cr>", {})
+vim.keymap.set("n", "<leader>m", "<C-z>", {})
 
 -- For copy paste
 vim.keymap.set("v", "<C-c>", '"+ygv', {})
