@@ -17,13 +17,30 @@ require("lazy").setup({
         event = "LspAttach",
         opts = {}, -- required, even if empty
     },
+    {
+        "OXY2DEV/markview.nvim",
+        lazy = false, -- Recommended
+        -- ft = "markdown" -- If you decide to lazy-load anyway
+
+        dependencies = {
+            -- You will not need this if you installed the
+            -- parsers manually
+            -- Or if the parsers are in your $RUNTIMEPATH
+            "nvim-treesitter/nvim-treesitter",
+
+            "nvim-tree/nvim-web-devicons"
+        }
+    },
     "nvim-lualine/lualine.nvim",
     "godlygeek/tabular",
     "mbbill/undotree",
     "mhartington/formatter.nvim",
     "nvim-treesitter/nvim-treesitter",
     "github/copilot.vim",
-    "catppuccin/nvim",
+    {
+        "olimorris/onedarkpro.nvim",
+        priority = 1000, -- Ensure it loads first
+    },
     "folke/neodev.nvim",
     "tpope/vim-fugitive",
     "tpope/vim-commentary",
