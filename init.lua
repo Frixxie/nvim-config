@@ -37,10 +37,7 @@ require("lazy").setup({
     "mhartington/formatter.nvim",
     "nvim-treesitter/nvim-treesitter",
     "github/copilot.vim",
-    {
-        "olimorris/onedarkpro.nvim",
-        priority = 1000, -- Ensure it loads first
-    },
+    "joshdick/onedark.vim",
     "folke/neodev.nvim",
     "tpope/vim-fugitive",
     "tpope/vim-commentary",
