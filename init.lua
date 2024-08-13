@@ -39,6 +39,14 @@ require("lazy").setup({
     "github/copilot.vim",
     "joshdick/onedark.vim",
     "folke/neodev.nvim",
+    "ionide/ionide-vim",
+    {
+        'mistweaverco/kulala.nvim',
+        config = function()
+            -- Setup is required, even if you don't pass any options
+            require('kulala').setup()
+        end
+    },
     "tpope/vim-fugitive",
     "tpope/vim-commentary",
     "tpope/vim-dadbod",
