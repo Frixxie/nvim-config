@@ -41,6 +41,19 @@ require("lazy").setup({
     "folke/neodev.nvim",
     "ionide/ionide-vim",
     'mistweaverco/kulala.nvim',
+    {
+        "olimorris/codecompanion.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-telescope/telescope.nvim", -- Optional
+            {
+                "stevearc/dressing.nvim",    -- Optional: Improves the default Neovim UI
+                opts = {},
+            },
+        },
+        config = true
+    },
     "tpope/vim-fugitive",
     "tpope/vim-commentary",
     "tpope/vim-dadbod",
@@ -118,3 +131,4 @@ require("config/telescope")
 require("config/mini")
 require("config/trouble")
 require("config/kulala")
+require("config/codecompanion")
