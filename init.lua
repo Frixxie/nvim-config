@@ -37,7 +37,10 @@ require("lazy").setup({
     "mhartington/formatter.nvim",
     "nvim-treesitter/nvim-treesitter",
     "github/copilot.vim",
-    "joshdick/onedark.vim",
+    {
+        "olimorris/onedarkpro.nvim",
+        priority = 1000, -- Ensure it loads first
+    },
     "folke/neodev.nvim",
     "ionide/ionide-vim",
     'mistweaverco/kulala.nvim',
@@ -131,4 +134,4 @@ require("config/telescope")
 require("config/mini")
 require("config/trouble")
 require("config/kulala")
-require("config/codecompanion")
+require("config.codecompanion")
