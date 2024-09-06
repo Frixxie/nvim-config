@@ -40,6 +40,16 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     command = "compiler dotnet",
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = { "*.gleam" },
+    command = "set tabstop=2",
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = { "*.gleam" },
+    command = "set shiftwidth=2",
+})
+
 vim.g.markdown_fenced_languages = {
     "ts=typescript"
 }

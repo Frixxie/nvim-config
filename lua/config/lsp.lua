@@ -56,7 +56,7 @@ require("lspconfig")["sqlls"].setup({
     on_attach = on_attach,
     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
-require("lspconfig")["tsserver"].setup({
+require("lspconfig")["ts_ls"].setup({
     on_attach = on_attach,
     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
@@ -109,6 +109,10 @@ require("lspconfig")["pyright"].setup({
     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
 require("lspconfig")["gleam"].setup({
+    on_attach = on_attach,
+    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+})
+require("lspconfig")["harper_ls"].setup({
     on_attach = on_attach,
     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })

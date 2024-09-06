@@ -34,28 +34,16 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     "godlygeek/tabular",
     "mbbill/undotree",
-    "mhartington/formatter.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "github/copilot.vim",
     {
         "olimorris/onedarkpro.nvim",
         priority = 1000, -- Ensure it loads first
     },
     "folke/neodev.nvim",
     "ionide/ionide-vim",
-    'mistweaverco/kulala.nvim',
     {
-        "olimorris/codecompanion.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-telescope/telescope.nvim", -- Optional
-            {
-                "stevearc/dressing.nvim",    -- Optional: Improves the default Neovim UI
-                opts = {},
-            },
-        },
-        config = true
+        'mistweaverco/kulala.nvim',
+        opts = {},
     },
     "tpope/vim-fugitive",
     "tpope/vim-commentary",
@@ -129,9 +117,7 @@ require("config/oil")
 require("config/lualine")
 require("config/lsp")
 require("config/treesitter")
-require("config/formatter")
 require("config/telescope")
 require("config/mini")
 require("config/trouble")
 require("config/kulala")
-require("config.codecompanion")
