@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        "--branch=stable", -- Latest stable release
         lazypath,
     })
 end
@@ -15,39 +15,16 @@ require("lazy").setup({
     {
         "chrisgrieser/nvim-lsp-endhints",
         event = "LspAttach",
-        opts = {}, -- required, even if empty
+        opts = {}, -- Required, even if empty
     },
-    {
-        "OXY2DEV/markview.nvim",
-        lazy = false, -- Recommended
-        -- ft = "markdown" -- If you decide to lazy-load anyway
-
-        dependencies = {
-            -- You will not need this if you installed the
-            -- parsers manually
-            -- Or if the parsers are in your $RUNTIMEPATH
-            "nvim-treesitter/nvim-treesitter",
-
-            "nvim-tree/nvim-web-devicons"
-        }
-    },
-    "nvim-lualine/lualine.nvim",
-    "godlygeek/tabular",
-    "mbbill/undotree",
-    "nvim-treesitter/nvim-treesitter",
     {
         "olimorris/onedarkpro.nvim",
         priority = 1000, -- Ensure it loads first
     },
-    "folke/neodev.nvim",
-    "ionide/ionide-vim",
     {
         'mistweaverco/kulala.nvim',
-        opts = {},
+        opts = {} -- Required, even if empty
     },
-    "tpope/vim-fugitive",
-    "tpope/vim-commentary",
-    "tpope/vim-dadbod",
     {
         "mfussenegger/nvim-dap",
         dependencies = {
@@ -60,10 +37,6 @@ require("lazy").setup({
         dependencies = {
             "tpope/vim-dispatch",
         }
-    },
-    {
-        'echasnovski/mini.nvim',
-        version = false
     },
     {
         "williamboman/mason.nvim",
@@ -90,10 +63,6 @@ require("lazy").setup({
         opts = { signs = false }
     },
     {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
-    {
         "otavioschwanck/arrow.nvim",
         opts = {
             show_icons = true,
@@ -101,11 +70,20 @@ require("lazy").setup({
         }
     },
     {
-        'stevearc/oil.nvim',
-        dependencies = {
-            "nvim-tree/nvim-web-devicons"
-        },
-    }
+        'echasnovski/mini.nvim',
+        version = false
+    },
+    "folke/trouble.nvim",
+    'stevearc/oil.nvim',
+    "folke/neodev.nvim",
+    "ionide/ionide-vim",
+    "nvim-lualine/lualine.nvim",
+    "godlygeek/tabular",
+    "mbbill/undotree",
+    "nvim-treesitter/nvim-treesitter",
+    "tpope/vim-fugitive",
+    "tpope/vim-commentary",
+    "tpope/vim-dadbod"
 })
 
 require("options")

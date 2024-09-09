@@ -37,7 +37,7 @@ require("mason-lspconfig").setup({
         "dockerls",
         "docker_compose_language_service",
         "tailwindcss",
-        "tsserver",
+        "ts_ls",
         "sqlls",
         "csharp_ls",
         "fsautocomplete"
