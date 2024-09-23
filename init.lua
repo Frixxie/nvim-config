@@ -26,13 +26,6 @@ require("lazy").setup({
 		opts = {}
 	},
 	{
-		"mfussenegger/nvim-dap",
-		dependencies = {
-			"rcarriga/nvim-dap-ui",
-			"nvim-neotest/nvim-nio",
-		},
-	},
-	{
 		"vim-test/vim-test",
 		dependencies = {
 			"tpope/vim-dispatch",
@@ -97,7 +90,6 @@ require("lazy").setup({
 require("options")
 require("keybindings")
 
-require("config/dap")
 require("config/neodev")
 require("config/oil")
 require("config/lualine")
