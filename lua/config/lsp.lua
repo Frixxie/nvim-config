@@ -112,7 +112,3 @@ require("lspconfig")["gleam"].setup({
     on_attach = on_attach,
     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 })
-require("lspconfig")["harper_ls"].setup({
-    on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
-})
