@@ -60,17 +60,6 @@ require("lazy").setup({
         opts = { signs = false }
     },
     {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
-    {
-        "otavioschwanck/arrow.nvim",
-        opts = {
-            show_icons = true,
-            leader_key = ';', -- Recommended to be a single key
-        }
-    },
-    {
         'stevearc/oil.nvim',
         dependencies = {
             "nvim-tree/nvim-web-devicons"
@@ -98,5 +87,4 @@ require("config/lsp")
 require("config/treesitter")
 require("config/telescope")
 require("config/mini")
-require("config/trouble")
 require("config/kulala")
