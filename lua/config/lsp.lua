@@ -44,71 +44,77 @@ require("mason-lspconfig").setup({
     }
 })
 
+local caps = require('blink.cmp').get_lsp_capabilities()
+
 require("lspconfig")["helm_ls"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["fsautocomplete"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["sqlls"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["ts_ls"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["tailwindcss"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["dockerls"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["docker_compose_language_service"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["clangd"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 -- require("lspconfig")["denols"].setup({
 --     on_attach = on_attach,
--- omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+--     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 -- })
 require("lspconfig")["svelte"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["hls"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["lua_ls"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["omnisharp"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["rust_analyzer"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["ocamllsp"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["pyright"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
 })
 require("lspconfig")["gleam"].setup({
     on_attach = on_attach,
-    omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    capbabilities = caps
+})
+require("lspconfig")["cssls"].setup({
+    on_attach = on_attach,
+    capbabilities = caps
 })

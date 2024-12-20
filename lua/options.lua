@@ -57,3 +57,9 @@ vim.g.markdown_fenced_languages = {
 vim.cmd([[colorscheme onedark]])
 
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true}") -- disabled in visual mode
+
+vim.keymap.set('i', '<C-L>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
