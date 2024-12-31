@@ -25,24 +25,7 @@ local on_attach = function(client, bufnr)
 end
 
 require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = {
-        "lua_ls",
-        "rust_analyzer",
-        "omnisharp",
-        "clangd",
-        "hls",
-        "denols",
-        "svelte",
-        "dockerls",
-        "docker_compose_language_service",
-        "tailwindcss",
-        "ts_ls",
-        "sqlls",
-        "csharp_ls",
-        "fsautocomplete"
-    }
-})
+require("mason-lspconfig").setup()
 
 local caps = require('blink.cmp').get_lsp_capabilities()
 
