@@ -18,6 +18,13 @@ require("lazy").setup({
         opts = {}, -- required, even if empty
     },
     {
+        "olimorris/codecompanion.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
+    {
         "olimorris/onedarkpro.nvim",
         priority = 1000, -- Ensure it loads first
     },
@@ -135,3 +142,4 @@ require("config/treesitter")
 require("config/telescope")
 require("config/mini")
 require("config/kulala")
+require("config/codecompanion")
