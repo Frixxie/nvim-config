@@ -41,10 +41,10 @@ require("lspconfig")["sqlls"].setup({
     on_attach = on_attach,
     capbabilities = caps
 })
-require("lspconfig")["ts_ls"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
+-- require("lspconfig")["ts_ls"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
 require("lspconfig")["tailwindcss"].setup({
     on_attach = on_attach,
     capbabilities = caps
@@ -61,10 +61,10 @@ require("lspconfig")["clangd"].setup({
     on_attach = on_attach,
     capbabilities = caps
 })
--- require("lspconfig")["denols"].setup({
---     on_attach = on_attach,
---     omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
--- })
+require("lspconfig")["denols"].setup({
+    on_attach = on_attach,
+    capbabilities = caps
+})
 require("lspconfig")["svelte"].setup({
     on_attach = on_attach,
     capbabilities = caps
@@ -97,7 +97,7 @@ require("lspconfig")["gleam"].setup({
     on_attach = on_attach,
     capbabilities = caps
 })
-require("lspconfig")["cssls"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
+-- require("lspconfig")["cssls"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })

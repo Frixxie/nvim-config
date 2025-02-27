@@ -128,7 +128,11 @@ require("lazy").setup({
     "tpope/vim-fugitive",
     "tpope/vim-commentary",
     "tpope/vim-dadbod",
-    "github/copilot.vim"
+    "github/copilot.vim",
+    {
+        "nvim-lua/plenary.nvim",
+        branch = "master"
+    }
 })
 
 require("options")
