@@ -132,7 +132,8 @@ require("lazy").setup({
     {
         "nvim-lua/plenary.nvim",
         branch = "master"
-    }
+    },
+    "kevinhwang91/nvim-bqf"
 })
 
 require("options")
