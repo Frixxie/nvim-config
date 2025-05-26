@@ -29,51 +29,63 @@ require("mason-lspconfig").setup()
 
 local caps = require('blink.cmp').get_lsp_capabilities()
 
-require("lspconfig")["tailwindcss"].setup({
+-- require("lspconfig")["tailwindcss"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+-- require("lspconfig")["clangd"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+-- require("lspconfig")["ts_ls"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+-- require("lspconfig")["svelte"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+-- require("lspconfig")["hls"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+-- require("lspconfig")["lua_ls"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+vim.lsp.enable('clang')
+vim.lsp.config('clang', {
     on_attach = on_attach,
     capbabilities = caps
 })
-require("lspconfig")["clangd"].setup({
+vim.lsp.enable('omnisharp')
+vim.lsp.config('omnisharp', {
     on_attach = on_attach,
     capbabilities = caps
 })
-require("lspconfig")["ts_ls"].setup({
+-- vim.lsp.enable('csharp_ls')
+-- vim.lsp.config('csharp_ls', {
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+vim.lsp.enable('rust_analyzer')
+vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
     capbabilities = caps
 })
-require("lspconfig")["svelte"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
-require("lspconfig")["hls"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
-require("lspconfig")["lua_ls"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
-require("lspconfig")["omnisharp"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
-require("lspconfig")["rust_analyzer"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
-require("lspconfig")["ocamllsp"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
-require("lspconfig")["pyright"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
-require("lspconfig")["gleam"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
-require("lspconfig")["harper_ls"].setup({
-    on_attach = on_attach,
-    capbabilities = caps
-})
+-- require("lspconfig")["ocamllsp"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+-- require("lspconfig")["pyright"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+-- require("lspconfig")["gleam"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
+-- require("lspconfig")["harper_ls"].setup({
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })

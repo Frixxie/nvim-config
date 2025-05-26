@@ -24,8 +24,13 @@ require("lazy").setup({
             "nvim-treesitter/nvim-treesitter",
         },
     },
+    -- {
+    --     "olimorris/onedarkpro.nvim",
+    --     priority = 1000, -- Ensure it loads first
+    -- },
     {
-        "olimorris/onedarkpro.nvim",
+        "catppuccin/nvim",
+        name = "catppuccin",
         priority = 1000, -- Ensure it loads first
     },
     {

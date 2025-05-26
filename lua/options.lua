@@ -55,7 +55,7 @@ vim.g.markdown_fenced_languages = {
 }
 
 
-vim.cmd([[colorscheme onedark]])
+vim.cmd([[colorscheme catppuccin-mocha]])
 
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true}") -- disabled in visual mode
 
