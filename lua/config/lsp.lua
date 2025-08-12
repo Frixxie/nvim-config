@@ -73,6 +73,12 @@ vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
     capbabilities = caps
 })
+vim.lsp.enable('denols')
+vim.lsp.config('denols', {
+    on_attach = on_attach,
+    capbabilities = caps
+})
+
 -- require("lspconfig")["ocamllsp"].setup({
 --     on_attach = on_attach,
 --     capbabilities = caps
