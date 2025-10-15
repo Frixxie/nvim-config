@@ -58,8 +58,23 @@ vim.lsp.config('clang', {
     on_attach = on_attach,
     capbabilities = caps
 })
+vim.lsp.enable('ruff')
+vim.lsp.config('ruff', {
+    on_attach = on_attach,
+    capbabilities = caps
+})
+vim.lsp.enable('pyright')
+vim.lsp.config('pyright', {
+    on_attach = on_attach,
+    capbabilities = caps
+})
 vim.lsp.enable('omnisharp')
 vim.lsp.config('omnisharp', {
+    on_attach = on_attach,
+    capbabilities = caps
+})
+vim.lsp.enable('hls')
+vim.lsp.config('hls', {
     on_attach = on_attach,
     capbabilities = caps
 })
