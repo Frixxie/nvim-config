@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 vim.g.have_nerd_font = true
 
 vim.opt.number = true
-vim.opt.rnu = true
+-- vim.opt.rnu = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
