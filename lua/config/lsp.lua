@@ -25,7 +25,18 @@ local on_attach = function(client, bufnr)
 end
 
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "hls",
+        "clangd",
+        "ruff",
+        "pyright",
+        "omnisharp",
+        "rust_analyzer",
+        "denols"
+    },
+    automatic_installation = true,
+})
 
 local caps = require('blink.cmp').get_lsp_capabilities()
 
@@ -53,8 +64,8 @@ local caps = require('blink.cmp').get_lsp_capabilities()
 --     on_attach = on_attach,
 --     capbabilities = caps
 -- })
-vim.lsp.enable('clang')
-vim.lsp.config('clang', {
+vim.lsp.enable('clangd')
+vim.lsp.config('clangd', {
     on_attach = on_attach,
     capbabilities = caps
 })
