@@ -33,7 +33,8 @@ require("mason-lspconfig").setup({
         "pyright",
         "omnisharp",
         "rust_analyzer",
-        "denols"
+        "denols",
+        "csharp_ls"
     },
     automatic_installation = true,
 })
@@ -89,11 +90,11 @@ vim.lsp.config('hls', {
     on_attach = on_attach,
     capbabilities = caps
 })
--- vim.lsp.enable('csharp_ls')
--- vim.lsp.config('csharp_ls', {
---     on_attach = on_attach,
---     capbabilities = caps
--- })
+vim.lsp.enable('csharp_ls')
+vim.lsp.config('csharp_ls', {
+    on_attach = on_attach,
+    capbabilities = caps
+})
 vim.lsp.enable('rust_analyzer')
 vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
@@ -104,20 +105,3 @@ vim.lsp.config('denols', {
     on_attach = on_attach,
     capbabilities = caps
 })
-
--- require("lspconfig")["ocamllsp"].setup({
---     on_attach = on_attach,
---     capbabilities = caps
--- })
--- require("lspconfig")["pyright"].setup({
---     on_attach = on_attach,
---     capbabilities = caps
--- })
--- require("lspconfig")["gleam"].setup({
---     on_attach = on_attach,
---     capbabilities = caps
--- })
--- require("lspconfig")["harper_ls"].setup({
---     on_attach = on_attach,
---     capbabilities = caps
--- })
