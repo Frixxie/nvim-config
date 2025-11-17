@@ -27,7 +27,6 @@ end
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "hls",
         "clangd",
         "ruff",
         "pyright",

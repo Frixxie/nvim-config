@@ -28,17 +28,6 @@ require("lazy").setup({
         "olimorris/onedarkpro.nvim",
         priority = 1000, -- Ensure it loads first
     },
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     lazy = false,
-    --     priority = 1000,
-    --     opts = {},
-    -- },
-    -- {
-    --     "catppuccin/nvim",
-    --     name = "catppuccin",
-    --     priority = 1000, -- Ensure it loads first
-    -- },
     {
         'mistweaverco/kulala.nvim',
         opts = {}
@@ -121,17 +110,6 @@ require("lazy").setup({
       -- dependencies = { "nvim-mini/mini.icons" },
       opts = {}
     },
-    -- {
-    --     "nvim-telescope/telescope.nvim",
-    --     dependencies = {
-    --         "nvim-lua/plenary.nvim",
-    --         {
-    --             "nvim-telescope/telescope-fzf-native.nvim",
-    --             build =
-    --             'make'
-    --         },
-    --     }
-    -- },
     {
         'folke/todo-comments.nvim',
         event = 'VimEnter',
@@ -150,7 +128,6 @@ require("lazy").setup({
     "godlygeek/tabular",
     "mbbill/undotree",
     "nvim-treesitter/nvim-treesitter",
-    -- "tpope/vim-fugitive",
     "tpope/vim-commentary",
     "tpope/vim-dadbod",
     "github/copilot.vim",
@@ -169,7 +146,6 @@ require("config/oil")
 require("config/lualine")
 require("config/lsp")
 require("config/treesitter")
--- require("config/telescope")
 require("config.fzf-lua")
 require("config/mini")
 require("config/kulala")
