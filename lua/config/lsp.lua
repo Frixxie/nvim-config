@@ -34,7 +34,6 @@ require("mason-lspconfig").setup({
         "omnisharp",
         "rust_analyzer",
         "denols",
-        "csharp_ls"
     },
     automatic_installation = true,
 })
@@ -87,11 +86,6 @@ vim.lsp.config('omnisharp', {
 })
 vim.lsp.enable('hls')
 vim.lsp.config('hls', {
-    on_attach = on_attach,
-    capbabilities = caps
-})
-vim.lsp.enable('csharp_ls')
-vim.lsp.config('csharp_ls', {
     on_attach = on_attach,
     capbabilities = caps
 })

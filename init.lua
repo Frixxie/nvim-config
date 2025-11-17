@@ -114,16 +114,24 @@ require("lazy").setup({
       opts_extend = { "sources.default" }
     },
     {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            {
-                "nvim-telescope/telescope-fzf-native.nvim",
-                build =
-                'make'
-            },
-        }
+      "ibhagwan/fzf-lua",
+      -- optional for icon support
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      -- or if using mini.icons/mini.nvim
+      -- dependencies = { "nvim-mini/mini.icons" },
+      opts = {}
     },
+    -- {
+    --     "nvim-telescope/telescope.nvim",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --         {
+    --             "nvim-telescope/telescope-fzf-native.nvim",
+    --             build =
+    --             'make'
+    --         },
+    --     }
+    -- },
     {
         'folke/todo-comments.nvim',
         event = 'VimEnter',
@@ -161,7 +169,8 @@ require("config/oil")
 require("config/lualine")
 require("config/lsp")
 require("config/treesitter")
-require("config/telescope")
+-- require("config/telescope")
+require("config.fzf-lua")
 require("config/mini")
 require("config/kulala")
 require("config/codecompanion")
