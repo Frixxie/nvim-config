@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 vim.g.have_nerd_font = true
 
 vim.opt.number = true
--- vim.opt.rnu = true
+vim.opt.rnu = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -53,6 +53,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 vim.g.markdown_fenced_languages = {
     "ts=typescript"
 }
+
+vim.cmd([[FzfLua register_ui_select]])
 
 vim.cmd([[colorscheme onedark_vivid]])
 
