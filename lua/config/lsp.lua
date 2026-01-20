@@ -47,10 +47,11 @@ local caps = require('blink.cmp').get_lsp_capabilities()
 --     on_attach = on_attach,
 --     capbabilities = caps
 -- })
--- require("lspconfig")["ts_ls"].setup({
---     on_attach = on_attach,
---     capbabilities = caps
--- })
+vim.lsp.enable('ts_ls')
+vim.lsp.config('ts_ls', {
+    on_attach = on_attach,
+    capbabilities = caps
+})
 -- require("lspconfig")["svelte"].setup({
 --     on_attach = on_attach,
 --     capbabilities = caps
@@ -93,8 +94,18 @@ vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
     capbabilities = caps
 })
-vim.lsp.enable('denols')
-vim.lsp.config('denols', {
+vim.lsp.enable('tinymist')
+vim.lsp.config('tinymist', {
     on_attach = on_attach,
     capbabilities = caps
 })
+vim.lsp.enable('harper_ls')
+vim.lsp.config('harper_ls', {
+    on_attach = on_attach,
+    capbabilities = caps
+})
+-- vim.lsp.enable('denols')
+-- vim.lsp.config('denols', {
+--     on_attach = on_attach,
+--     capbabilities = caps
+-- })
