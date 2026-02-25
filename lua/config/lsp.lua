@@ -7,11 +7,11 @@ local on_attach = function(client, bufnr)
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set("n", "<leader>D", vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
     vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, bufopts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
     vim.keymap.set("n", "<leader>i", vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
     vim.keymap.set("n", "<leader>wl", function()
@@ -41,71 +41,71 @@ local caps = require('blink.cmp').get_lsp_capabilities()
 
 -- require("lspconfig")["tailwindcss"].setup({
 --     on_attach = on_attach,
---     capbabilities = caps
+--     capabilities = caps
 -- })
 -- require("lspconfig")["clangd"].setup({
 --     on_attach = on_attach,
---     capbabilities = caps
+--     capabilities = caps
 -- })
 vim.lsp.enable('ts_ls')
 vim.lsp.config('ts_ls', {
     on_attach = on_attach,
-    capbabilities = caps
+    capabilities = caps
 })
 -- require("lspconfig")["svelte"].setup({
 --     on_attach = on_attach,
---     capbabilities = caps
+--     capabilities = caps
 -- })
 -- require("lspconfig")["hls"].setup({
 --     on_attach = on_attach,
---     capbabilities = caps
+--     capabilities = caps
 -- })
 -- require("lspconfig")["lua_ls"].setup({
 --     on_attach = on_attach,
---     capbabilities = caps
+--     capabilities = caps
 -- })
 vim.lsp.enable('clangd')
 vim.lsp.config('clangd', {
     on_attach = on_attach,
-    capbabilities = caps
+    capabilities = caps
 })
 vim.lsp.enable('ruff')
 vim.lsp.config('ruff', {
     on_attach = on_attach,
-    capbabilities = caps
+    capabilities = caps
 })
 vim.lsp.enable('pyright')
 vim.lsp.config('pyright', {
     on_attach = on_attach,
-    capbabilities = caps
+    capabilities = caps
 })
 vim.lsp.enable('omnisharp')
 vim.lsp.config('omnisharp', {
     on_attach = on_attach,
-    capbabilities = caps
+    capabilities = caps
 })
 vim.lsp.enable('hls')
 vim.lsp.config('hls', {
     on_attach = on_attach,
-    capbabilities = caps
+    capabilities = caps
 })
 vim.lsp.enable('rust_analyzer')
 vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
-    capbabilities = caps
+    capabilities = caps
 })
 vim.lsp.enable('tinymist')
 vim.lsp.config('tinymist', {
     on_attach = on_attach,
-    capbabilities = caps
+    capabilities = caps
 })
 vim.lsp.enable('harper_ls')
 vim.lsp.config('harper_ls', {
     on_attach = on_attach,
-    capbabilities = caps
+    capabilities = caps
 })
 -- vim.lsp.enable('denols')
 -- vim.lsp.config('denols', {
 --     on_attach = on_attach,
---     capbabilities = caps
+--     capabilities = caps
 -- })
