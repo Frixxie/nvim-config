@@ -120,7 +120,13 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     "godlygeek/tabular",
     "mbbill/undotree",
-    "nvim-treesitter/nvim-treesitter",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            require("config/treesitter")
+        end,
+    },
     "tpope/vim-commentary",
     "tpope/vim-dadbod",
     "github/copilot.vim",
@@ -133,7 +139,6 @@ require("lazy").setup({
 
 require("options")
 require("keybindings")
-
 require("config/neodev")
 require("config/oil")
 require("config/lualine")
