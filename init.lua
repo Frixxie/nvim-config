@@ -62,7 +62,7 @@ now(function()
     add({ source = 'rafamadriz/friendly-snippets' })
     add({
         source = 'saghen/blink.cmp',
-        checkout = 'v1.3.1',
+        checkout = 'v1.9.1',
         depends = { 'rafamadriz/friendly-snippets' },
     })
     require("config/blink")
