@@ -1,148 +1,147 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
+-- Bootstrap mini.deps
+local path_package = vim.fn.stdpath('data') .. '/site/'
+local mini_path = path_package .. 'pack/deps/start/mini.nvim'
+if not vim.loop.fs_stat(mini_path) then
+    vim.cmd('echo "Installing `mini.nvim`" | redraw')
+    local clone_cmd = {
+        'git', 'clone', '--filter=blob:none',
+        'https://github.com/echasnovski/mini.nvim', mini_path
+    }
+    vim.fn.system(clone_cmd)
+    vim.cmd('packadd mini.nvim | helptags ALL')
+    vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
-vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    {
-        "chrisgrieser/nvim-lsp-endhints",
-        event = "LspAttach",
-        opts = {}, -- required, even if empty
-    },
-    {
-        "olimorris/onedarkpro.nvim",
-        priority = 1000, -- Ensure it loads first
-    },
-    {
-        'mistweaverco/kulala.nvim',
-        opts = {}
-    },
-    {
-        "vim-test/vim-test",
-        dependencies = {
-            "tpope/vim-dispatch",
-        }
-    },
-    {
-        'echasnovski/mini.nvim',
-        version = false
-    },
-    {
-        "williamboman/mason.nvim",
-        dependencies = {
-            "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig",
-        }
-    },
-    {
-      'saghen/blink.cmp',
-      -- optional: provides snippets for the snippet source
-      dependencies = { 'rafamadriz/friendly-snippets' },
+require('mini.deps').setup({ path = { package = path_package } })
 
-      -- use a release tag to download pre-built binaries
-      version = '1.*',
-      -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-      -- build = 'cargo build --release',
-      -- If you use nix, you can build from source using latest nightly rust with:
-      -- build = 'nix run .#build-plugin',
+local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
-      ---@module 'blink.cmp'
-      ---@type blink.cmp.Config
-      opts = {
-        -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
-        -- 'super-tab' for mappings similar to vscode (tab to accept)
-        -- 'enter' for enter to accept
-        -- 'none' for no mappings
-        --
-        -- All presets have the following mappings:
-        -- C-space: Open menu or open docs if already open
-        -- C-n/C-p or Up/Down: Select next/previous item
-        -- C-e: Hide menu
-        -- C-k: Toggle signature help (if signature.enabled = true)
-        --
-        -- See :h blink-cmp-config-keymap for defining your own keymap
-        keymap = { preset = 'default' },
+-- Options and keybindings need to load first (leader key, etc.)
+now(function()
+    require("options")
+    require("keybindings")
+end)
 
-        appearance = {
-          -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-          -- Adjusts spacing to ensure icons are aligned
-          nerd_font_variant = 'mono'
+-- Colorscheme must load early for initial screen draw
+now(function()
+    add({ source = 'olimorris/onedarkpro.nvim' })
+    vim.cmd([[colorscheme onedark_vivid]])
+end)
+
+-- mini.nvim modules (already installed as the package manager itself)
+now(function()
+    require("config/mini")
+end)
+
+-- Statusline should be visible immediately
+now(function()
+    add({ source = 'nvim-lualine/lualine.nvim' })
+    require("config/lualine")
+end)
+
+-- File explorer
+now(function()
+    add({
+        source = 'stevearc/oil.nvim',
+        depends = { 'nvim-tree/nvim-web-devicons' },
+    })
+    require("config/oil")
+end)
+
+-- Fuzzy finder
+now(function()
+    add({
+        source = 'ibhagwan/fzf-lua',
+        depends = { 'nvim-tree/nvim-web-devicons' },
+    })
+    require("config/fzf-lua")
+end)
+
+-- Completion engine
+now(function()
+    add({ source = 'rafamadriz/friendly-snippets' })
+    add({
+        source = 'saghen/blink.cmp',
+        checkout = 'v1.3.1',
+        depends = { 'rafamadriz/friendly-snippets' },
+    })
+    require("config/blink")
+end)
+
+-- LSP infrastructure
+now(function()
+    add({ source = 'neovim/nvim-lspconfig' })
+    add({
+        source = 'williamboman/mason.nvim',
+        depends = { 'williamboman/mason-lspconfig.nvim', 'neovim/nvim-lspconfig' },
+    })
+    add({ source = 'folke/neodev.nvim' })
+    require("config/neodev")
+    require("config/lsp")
+end)
+
+-- Treesitter
+now(function()
+    add({
+        source = 'nvim-treesitter/nvim-treesitter',
+        hooks = {
+            post_checkout = function() vim.cmd('TSUpdate') end,
         },
+    })
+    require("config/treesitter")
+end)
 
-        -- (Default) Only show the documentation popup when manually triggered
-        completion = { documentation = { auto_show = false } },
-
-        -- Default list of enabled providers defined so that you can extend it
-        -- elsewhere in your config, without redefining it, due to `opts_extend`
-        sources = {
-          default = { 'lsp', 'path', 'snippets', 'buffer' },
-        },
-
-        -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-        -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-        -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-        --
-        -- See the fuzzy documentation for more information
-        fuzzy = { implementation = "prefer_rust_with_warning" }
-      },
-      opts_extend = { "sources.default" }
-    },
-    {
-      "ibhagwan/fzf-lua",
-      -- optional for icon support
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-      -- or if using mini.icons/mini.nvim
-      -- dependencies = { "nvim-mini/mini.icons" },
-      opts = {}
-    },
-    {
-        'folke/todo-comments.nvim',
-        event = 'VimEnter',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        opts = { signs = false }
-    },
-    {
-        'stevearc/oil.nvim',
-        dependencies = {
-            "nvim-tree/nvim-web-devicons"
-        },
-    },
-    "folke/neodev.nvim",
-    "ionide/ionide-vim",
-    "nvim-lualine/lualine.nvim",
-    "godlygeek/tabular",
-    "mbbill/undotree",
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function()
-            require("config/treesitter")
+-- Endhints (lazy-loaded on LspAttach via autocommand)
+later(function()
+    add({ source = 'chrisgrieser/nvim-lsp-endhints' })
+    vim.api.nvim_create_autocmd('LspAttach', {
+        once = true,
+        callback = function()
+            require('lsp-endhints').setup()
         end,
-    },
-    "tpope/vim-commentary",
-    "tpope/vim-dadbod",
-    "github/copilot.vim",
-    {
-        "nvim-lua/plenary.nvim",
-        branch = "master"
-    },
-    "kevinhwang91/nvim-bqf"
-})
+    })
+end)
 
-require("options")
-require("keybindings")
-require("config/neodev")
-require("config/oil")
-require("config/lualine")
-require("config/lsp")
-require("config/fzf-lua")
-require("config/mini")
-require("config/kulala")
+-- Todo comments (deferred, non-critical UI)
+later(function()
+    add({
+        source = 'folke/todo-comments.nvim',
+        depends = { 'nvim-lua/plenary.nvim' },
+    })
+    require('todo-comments').setup({ signs = false })
+end)
+
+-- HTTP client
+later(function()
+    add({ source = 'mistweaverco/kulala.nvim' })
+    require('kulala').setup()
+    require("config/kulala")
+end)
+
+-- Testing
+later(function()
+    add({
+        source = 'vim-test/vim-test',
+        depends = { 'tpope/vim-dispatch' },
+    })
+end)
+
+-- Git copilot
+later(function()
+    add({ source = 'github/copilot.vim' })
+end)
+
+-- Language support
+later(function()
+    add({ source = 'ionide/ionide-vim' })
+end)
+
+-- Utilities
+later(function()
+    add({ source = 'godlygeek/tabular' })
+    add({ source = 'mbbill/undotree' })
+    add({ source = 'tpope/vim-commentary' })
+    add({ source = 'tpope/vim-dadbod' })
+    add({ source = 'nvim-lua/plenary.nvim' })
+    add({ source = 'kevinhwang91/nvim-bqf' })
+end)

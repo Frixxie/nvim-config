@@ -56,10 +56,6 @@ vim.g.markdown_fenced_languages = {
     "ts=typescript"
 }
 
-vim.cmd([[FzfLua register_ui_select]])
-
-vim.cmd([[colorscheme onedark_vivid]])
-
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true}") -- disabled in visual mode
 
 vim.keymap.set('i', '<C-L>', 'copilot#Accept("\\<CR>")', {
