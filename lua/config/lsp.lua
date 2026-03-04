@@ -22,6 +22,14 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>ca", ":FzfLua lsp_code_actions<cr>", bufopts)
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, bufopts)
     vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, bufopts)
+
+    -- Enable inlay hints if the server supports them
+    if client.supports_method('textDocument/inlayHint') then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        vim.keymap.set("n", "<leader>th", function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
+        end, { buffer = bufnr, desc = "Toggle inlay hints" })
+    end
 end
 
 require("mason").setup()

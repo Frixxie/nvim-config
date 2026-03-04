@@ -24,8 +24,8 @@ end)
 
 -- Colorscheme must load early for initial screen draw
 now(function()
-    add({ source = 'olimorris/onedarkpro.nvim' })
-    vim.cmd([[colorscheme onedark_vivid]])
+    add({ source = 'rebelot/kanagawa.nvim' })
+    require("kanagawa").load("wave")
 end)
 
 -- mini.nvim modules (already installed as the package manager itself)
