@@ -1,119 +1,59 @@
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-    -- Mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, bufopts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-    vim.keymap.set("n", "<leader>i", vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-    vim.keymap.set("n", "<leader>wl", function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, bufopts)
-    vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-    vim.keymap.set("n", "<leader>ca", ":FzfLua lsp_code_actions<cr>", bufopts)
-    vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, bufopts)
-    vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, bufopts)
-
-    -- Enable inlay hints if the server supports them
-    if client.supports_method('textDocument/inlayHint') then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-        vim.keymap.set("n", "<leader>th", function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
-        end, { buffer = bufnr, desc = "Toggle inlay hints" })
-    end
-end
-
 require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = {
-        "clangd",
-        "ruff",
-        "pyright",
-        "omnisharp",
-        "rust_analyzer",
-        "denols",
-    },
-    automatic_installation = true,
+
+local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if not client then
+            return
+        end
+
+        local bufnr = ev.buf
+        local opts = { buffer = bufnr }
+
+        vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+        if client:supports_method("textDocument/inlayHint") then
+            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end
+
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<leader>i", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+        vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+        vim.keymap.set("n", "<leader>wl", function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        end, opts)
+        vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", opts)
+        vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
+        vim.keymap.set("n", "<leader>th", function()
+            vim.lsp.inlay_hint.enable(
+                not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
+                { bufnr = bufnr }
+            )
+        end, { buffer = bufnr, desc = "Toggle inlay hints" })
+    end,
 })
 
-local caps = require('blink.cmp').get_lsp_capabilities()
+vim.lsp.config("*", {
+    capabilities = blink_capabilities,
+})
 
--- require("lspconfig")["tailwindcss"].setup({
---     on_attach = on_attach,
---     capabilities = caps
--- })
--- require("lspconfig")["clangd"].setup({
---     on_attach = on_attach,
---     capabilities = caps
--- })
-vim.lsp.enable('ts_ls')
-vim.lsp.config('ts_ls', {
-    on_attach = on_attach,
-    capabilities = caps
+vim.lsp.enable({
+    "ts_ls",
+    "clangd",
+    "ruff",
+    "pyright",
+    "csharp_ls",
+    "hls",
+    "rust_analyzer",
+    "tinymist",
+    "harper_ls",
 })
--- require("lspconfig")["svelte"].setup({
---     on_attach = on_attach,
---     capabilities = caps
--- })
--- require("lspconfig")["hls"].setup({
---     on_attach = on_attach,
---     capabilities = caps
--- })
--- require("lspconfig")["lua_ls"].setup({
---     on_attach = on_attach,
---     capabilities = caps
--- })
-vim.lsp.enable('clangd')
-vim.lsp.config('clangd', {
-    on_attach = on_attach,
-    capabilities = caps
-})
-vim.lsp.enable('ruff')
-vim.lsp.config('ruff', {
-    on_attach = on_attach,
-    capabilities = caps
-})
-vim.lsp.enable('pyright')
-vim.lsp.config('pyright', {
-    on_attach = on_attach,
-    capabilities = caps
-})
-vim.lsp.enable('omnisharp')
-vim.lsp.config('omnisharp', {
-    on_attach = on_attach,
-    capabilities = caps
-})
-vim.lsp.enable('hls')
-vim.lsp.config('hls', {
-    on_attach = on_attach,
-    capabilities = caps
-})
-vim.lsp.enable('rust_analyzer')
-vim.lsp.config('rust_analyzer', {
-    on_attach = on_attach,
-    capabilities = caps
-})
-vim.lsp.enable('tinymist')
-vim.lsp.config('tinymist', {
-    on_attach = on_attach,
-    capabilities = caps
-})
-vim.lsp.enable('harper_ls')
-vim.lsp.config('harper_ls', {
-    on_attach = on_attach,
-    capabilities = caps
-})
--- vim.lsp.enable('denols')
--- vim.lsp.config('denols', {
---     on_attach = on_attach,
---     capabilities = caps
--- })
