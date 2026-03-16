@@ -1,0 +1,10 @@
+return {
+  ["blink.cmp"] = "4b18c32adef2898f95cdef6192cbd5796c1a332d",
+  ["friendly-snippets"] = "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+  ["fzf-lua"] = "6e41ba7505f35a6f054ca682b043aa0cea36c2ef",
+  ["kanagawa.nvim"] = "aef7f5cec0a40dbe7f3304214850c472e2264b10",
+  ["mason.nvim"] = "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
+  ["mini.nvim"] = "9990c41f10f54f29a888d13024c9f765037bde23",
+  ["nvim-treesitter"] = "2f5d4c3f3c675962242096bcc8e586d76dd72eb2",
+  ["oil.nvim"] = "0fcc83805ad11cf714a949c98c605ed717e0b83e"
+}

@@ -51,7 +51,7 @@ vim.lsp.enable({
     "clangd",
     "ruff",
     "pyright",
-    "csharp_ls",
+    "omnisharp",
     "hls",
     "rust_analyzer",
     "tinymist",

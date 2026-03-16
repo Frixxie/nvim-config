@@ -69,6 +69,11 @@ now(function()
     require("config/treesitter")
 end)
 
+now(function()
+    add({ source = "mistweaverco/kulala.nvim" })
+    require("config/kulala")
+end)
+
 local jj_status = ""
 
 local function jj_refresh()

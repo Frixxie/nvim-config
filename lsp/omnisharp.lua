@@ -1,5 +1,5 @@
 return {
-    cmd = { "csharp-ls" },
+    cmd = { "OmniSharp" },
     filetypes = { "cs" },
     root_markers = { "*.sln", "*.csproj", ".git" },
 }
