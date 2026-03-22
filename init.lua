@@ -43,6 +43,10 @@ now(function()
 end)
 
 now(function()
+    add({ source = "github/copilot.vim" })
+end)
+
+now(function()
     add({ source = "rafamadriz/friendly-snippets" })
     add({
         source = "saghen/blink.cmp",

@@ -4,6 +4,7 @@ vim.keymap.set("n", "<leader>n", ":noh<cr>", {})
 vim.keymap.set("n", "<leader>w", ":w!<cr>", {})
 vim.keymap.set("n", "<leader>o", ":Oil<cr>", {})
 vim.keymap.set("n", "<leader>p", ":FzfLua files<cr>", {})
+vim.keymap.set("n", "<leader>cp", ":Copilot enable<cr>", {})
 vim.keymap.set("n", "<leader>co", ":copen<cr>", {})
 vim.keymap.set("n", "<leader>cn", ":cnext<cr>", {})
 vim.keymap.set("n", "<leader>cp", ":cprev<cr>", {})
@@ -22,6 +23,7 @@ end, {})
 
 vim.keymap.set("v", "<C-c>", '"+ygv', {})
 vim.keymap.set("t", "<leader><esc>", "<C-\\><C-n>", {})
+vim.keymap.set("i", "<C-l>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
