@@ -48,12 +48,10 @@ vim.g.markdown_fenced_languages = {
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
-        vim.highlight.on_yank({ on_visual = true })
+        vim.hl.on_yank({ on_visual = true })
     end,
 })
 
-vim.g.loaded_node_provider = 0
-vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 

@@ -28,12 +28,14 @@ vim.api.nvim_create_autocmd("FileType", {
         "javascript",
         "javascriptreact",
         "lhaskell",
-        "markdown",
+        "lua",
         "python",
         "rust",
         "typst",
         "typescript",
         "typescriptreact",
+        "vim",
+        "vimdoc",
     },
     callback = function(args)
         pcall(vim.treesitter.start, args.buf)
