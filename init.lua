@@ -1,82 +1,39 @@
-local path_package = vim.fn.stdpath("data") .. "/site/"
-local mini_path = path_package .. "pack/deps/start/mini.nvim"
+local gh = function(x) return "https://github.com/" .. x end
 
-if not vim.loop.fs_stat(mini_path) then
-    vim.cmd('echo "Installing `mini.nvim`" | redraw')
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/echasnovski/mini.nvim",
-        mini_path,
-    })
-    vim.cmd("packadd mini.nvim | helptags ALL")
-    vim.cmd('echo "Installed `mini.nvim`" | redraw')
-end
+-- Run TSUpdate after treesitter is installed or updated
+vim.api.nvim_create_autocmd("PackChanged", {
+    callback = function(ev)
+        if ev.data.spec.name == "nvim-treesitter" and (ev.data.kind == "install" or ev.data.kind == "update") then
+            vim.cmd("TSUpdate")
+        end
+    end,
+})
 
-require("mini.deps").setup({ path = { package = path_package } })
+vim.pack.add({
+    gh("echasnovski/mini.nvim"),
+    gh("rebelot/kanagawa.nvim"),
+    gh("stevearc/oil.nvim"),
+    gh("ibhagwan/fzf-lua"),
+    gh("github/copilot.vim"),
+    gh("rafamadriz/friendly-snippets"),
+    { src = gh("saghen/blink.cmp"), version = "v1.9.1" },
+    gh("williamboman/mason.nvim"),
+    gh("nvim-treesitter/nvim-treesitter"),
+    gh("mistweaverco/kulala.nvim"),
+})
 
-local add, now = MiniDeps.add, MiniDeps.now
+require("options")
+require("keybindings")
 
-now(function()
-    require("options")
-    require("keybindings")
-end)
+require("kanagawa").load("wave")
 
-now(function()
-    add({ source = "rebelot/kanagawa.nvim" })
-    require("kanagawa").load("wave")
-end)
-
-now(function()
-    require("config/mini")
-end)
-
-now(function()
-    add({ source = "stevearc/oil.nvim" })
-    require("config/oil")
-end)
-
-now(function()
-    add({ source = "ibhagwan/fzf-lua" })
-    require("config/fzf-lua")
-end)
-
-now(function()
-    add({ source = "github/copilot.vim" })
-end)
-
-now(function()
-    add({ source = "rafamadriz/friendly-snippets" })
-    add({
-        source = "saghen/blink.cmp",
-        checkout = "v1.9.1",
-        depends = { "rafamadriz/friendly-snippets" },
-    })
-    require("config/blink")
-end)
-
-now(function()
-    add({ source = "williamboman/mason.nvim" })
-    require("config/lsp")
-end)
-
-now(function()
-    add({
-        source = "nvim-treesitter/nvim-treesitter",
-        hooks = {
-            post_checkout = function()
-                vim.cmd("TSUpdate")
-            end,
-        },
-    })
-    require("config/treesitter")
-end)
-
-now(function()
-    add({ source = "mistweaverco/kulala.nvim" })
-    require("config/kulala")
-end)
+require("config/mini")
+require("config/oil")
+require("config/fzf-lua")
+require("config/blink")
+require("config/lsp")
+require("config/treesitter")
+require("config/kulala")
 
 local jj_status = ""
 

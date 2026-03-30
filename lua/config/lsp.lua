@@ -1,5 +1,7 @@
 require("mason").setup()
 
+vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
+
 local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
 
 vim.api.nvim_create_autocmd("LspAttach", {
