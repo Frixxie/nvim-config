@@ -56,4 +56,15 @@ vim.lsp.enable({
     "rust_analyzer",
     "tinymist",
     "harper_ls",
+    "copilot",
 })
+
+vim.lsp.inline_completion.enable()
+
+vim.keymap.set("i", "<C-l>", function()
+    if not vim.lsp.inline_completion.get() then
+        return "<C-.>"
+    end
+end, { expr = true, desc = "Accept the current inline completion" })
+
+vim.keymap.set("i", "<C-j>", vim.lsp.inline_completion.trigger, { desc = "Trigger new inline completion" })

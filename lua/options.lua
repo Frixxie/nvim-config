@@ -54,5 +54,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
-
-vim.g.copilot_no_tab_map = true

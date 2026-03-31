@@ -14,7 +14,6 @@ vim.pack.add({
     gh("rebelot/kanagawa.nvim"),
     gh("stevearc/oil.nvim"),
     gh("ibhagwan/fzf-lua"),
-    gh("github/copilot.vim"),
     gh("rafamadriz/friendly-snippets"),
     { src = gh("saghen/blink.cmp"), version = "v1.10.1" },
     gh("williamboman/mason.nvim"),
@@ -82,6 +81,6 @@ jj_refresh()
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, { callback = jj_refresh })
 
-vim.opt.statusline = " %f %m%r%h%w%=%{v:lua.vim.diagnostic.status()} %{v:lua.vim.ui.progress_status()}%{v:lua.LspStatus()}%{v:lua.JjStatus()}%y  %l:%c  %p%% "
+vim.opt.statusline = " %f %m%r%h%w%=%{v:lua.LspStatus()}%{v:lua.JjStatus()}%y  %l:%c  %p%% "
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy" }
 vim.opt.pumborder = "rounded"

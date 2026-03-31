@@ -1,0 +1,14 @@
+return {
+    cmd = { "copilot-language-server", "--stdio" },
+    init_options = {
+        editorInfo = {
+            name = "Neovim",
+            version = tostring(vim.version()),
+        },
+        editorPluginInfo = {
+            name = "Neovim",
+            version = tostring(vim.version()),
+        },
+    },
+    root_markers = { ".git" },
+}
