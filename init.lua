@@ -14,6 +14,7 @@ vim.pack.add({
     gh("rebelot/kanagawa.nvim"),
     gh("stevearc/oil.nvim"),
     gh("ibhagwan/fzf-lua"),
+    gh("github/copilot.vim"),
     gh("rafamadriz/friendly-snippets"),
     { src = gh("saghen/blink.cmp"), version = "v1.10.1" },
     gh("williamboman/mason.nvim"),

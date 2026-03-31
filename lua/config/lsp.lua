@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", opts)
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, opts)
         vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
+        vim.keymap.set("i", "<C-t>", vim.lsp.inline_completion.trigger, { desc = "Trigger new inline completion" })
         vim.keymap.set("n", "<leader>th", function()
             vim.lsp.inlay_hint.enable(
                 not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
@@ -63,8 +64,7 @@ vim.lsp.inline_completion.enable()
 
 vim.keymap.set("i", "<C-l>", function()
     if not vim.lsp.inline_completion.get() then
-        return "<C-.>"
+        return "<C-l>"
     end
 end, { expr = true, desc = "Accept the current inline completion" })
 
-vim.keymap.set("i", "<C-j>", vim.lsp.inline_completion.trigger, { desc = "Trigger new inline completion" })
