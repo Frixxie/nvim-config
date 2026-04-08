@@ -115,22 +115,14 @@ vim.opt.statusline = " %f %m%r%h%w%=%{v:lua.LspStatus()}%{v:lua.JjStatus()}%y  %
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy" }
 vim.opt.pumborder = "rounded"
 
--- :PackClean - find and remove plugins on disk that are not in the lockfile
+-- :PackClean - find and remove plugins on disk that are not declared in vim.pack
 vim.api.nvim_create_user_command("PackClean", function()
-    local lockfile = vim.fn.stdpath("config") .. "/nvim-pack-lock.json"
     local pack_root = vim.fn.stdpath("data") .. "/site/pack"
 
-    -- Read and parse the lockfile to get declared plugin names
-    local ok, content = pcall(vim.fn.readfile, lockfile)
-    if not ok then
-        vim.notify("PackClean: could not read " .. lockfile, vim.log.levels.ERROR)
-        return
-    end
-
-    local lock = vim.json.decode(table.concat(content, "\n"))
+    -- Get declared plugin names directly from vim.pack
     local declared = {}
-    for name, _ in pairs(lock.plugins or {}) do
-        declared[name] = true
+    for _, plugin in ipairs(vim.pack.get()) do
+        declared[plugin.spec.name] = true
     end
 
     -- Scan all pack/{group}/{start,opt}/* directories for installed plugins
@@ -177,6 +169,6 @@ vim.api.nvim_create_user_command("PackClean", function()
         end
         vim.notify("PackClean: removed " .. removed .. " plugin(s)", vim.log.levels.INFO)
     end)
-end, { desc = "Remove plugins on disk that are not declared in the lockfile" })
+end, { desc = "Remove plugins on disk that are not declared in vim.pack" })
 
 require('vim._core.ui2').enable({})
