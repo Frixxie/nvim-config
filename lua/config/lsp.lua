@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, opts)
         vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
         vim.keymap.set("n", "<leader>th", function()

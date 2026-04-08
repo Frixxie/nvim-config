@@ -26,6 +26,9 @@ vim.pack.add({
     gh("mistweaverco/kulala.nvim"),
 })
 
+vim.cmd.packadd("nvim.undotree")
+vim.cmd.packadd("nvim.difftool")
+
 require("options")
 require("keybindings")
 

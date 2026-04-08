@@ -20,6 +20,8 @@ vim.keymap.set("n", "<leader>Rb", function()
     require("kulala").scratchpad()
 end, {})
 
+vim.keymap.set("n", "<leader>u", ":Undotree<cr>", { desc = "Toggle undotree" })
+
 vim.keymap.set("v", "<C-c>", '"+ygv', {})
 vim.keymap.set("t", "<leader><esc>", "<C-\\><C-n>", {})
 
