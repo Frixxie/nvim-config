@@ -40,6 +40,7 @@ require("config/treesitter")
 require("config/kulala")
 
 local jj_status = ""
+local jj_ahead = 0
 
 local function jj_refresh()
     if vim.fn.executable("jj") ~= 1 then
@@ -59,13 +60,37 @@ local function jj_refresh()
             end)
         end
     )
+
+    vim.system(
+        { "jj", "log", "--no-graph", "-r", "::@ & ~::trunk()", "-T", [[".\n"]] },
+        { text = true },
+        function(obj)
+            local count = 0
+            if obj.code == 0 and obj.stdout then
+                local trimmed = vim.trim(obj.stdout)
+                if trimmed ~= "" then
+                    -- Count the number of lines (each commit outputs one line)
+                    for _ in trimmed:gmatch("[^\n]+") do
+                        count = count + 1
+                    end
+                end
+            end
+            vim.schedule(function()
+                jj_ahead = count
+            end)
+        end
+    )
 end
 
 _G.JjStatus = function()
     if jj_status == "" then
         return ""
     end
-    return " jj:" .. jj_status .. " "
+    local s = " jj:" .. jj_status
+    if jj_ahead > 0 then
+        s = s .. " +" .. jj_ahead
+    end
+    return s .. " "
 end
 
 _G.LspStatus = function()
