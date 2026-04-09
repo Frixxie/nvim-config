@@ -104,7 +104,9 @@ _G.LspStatus = function()
 
     local names = {}
     for _, client in ipairs(clients) do
-        table.insert(names, client.name)
+        if client.name ~= "GitHub Copilot" then
+            table.insert(names, client.name)
+        end
     end
 
     return " lsp:" .. table.concat(names, ",") .. " "

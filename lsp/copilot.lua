@@ -10,5 +10,12 @@ return {
             version = tostring(vim.version()),
         },
     },
+    settings = {
+        github = {
+            copilot = {
+                selectedCompletionModel = "claude-4.5-haiku",
+            },
+        },
+    },
     root_markers = { ".git" },
 }
