@@ -56,10 +56,23 @@ vim.lsp.enable({
     "rust_analyzer",
     "tinymist",
     "harper_ls",
-    "copilot",
 })
 
 vim.lsp.inline_completion.enable()
+
+function ToggleCopilot()
+    local clients = vim.lsp.get_clients({ name = "copilot" })
+    if #clients > 0 then
+        for _, client in ipairs(clients) do
+            client:stop()
+        end
+        vim.notify("Copilot disabled")
+    else
+        vim.lsp.enable("copilot")
+        vim.notify("Copilot enabled")
+    end
+end
+
 vim.keymap.set("i", "<C-l>", function()
     if not vim.lsp.inline_completion.get() then
         return "<C-l>"

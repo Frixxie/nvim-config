@@ -22,6 +22,8 @@ end, {})
 
 vim.keymap.set("n", "<leader>u", ":Undotree<cr>", { desc = "Toggle undotree" })
 
+vim.keymap.set("n", "<leader>ce", function() ToggleCopilot() end, { desc = "Toggle Copilot LSP" })
+
 vim.keymap.set("v", "<C-c>", '"+ygv', {})
 vim.keymap.set("t", "<leader><esc>", "<C-\\><C-n>", {})
 
