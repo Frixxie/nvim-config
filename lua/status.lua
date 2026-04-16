@@ -52,6 +52,21 @@ _G.JjStatus = function()
     return s .. " "
 end
 
+_G.DiagStatus = function()
+    local buf = vim.api.nvim_get_current_buf()
+    local e = #vim.diagnostic.get(buf, { severity = vim.diagnostic.severity.ERROR })
+    local w = #vim.diagnostic.get(buf, { severity = vim.diagnostic.severity.WARN })
+    local h = #vim.diagnostic.get(buf, { severity = vim.diagnostic.severity.HINT })
+    if e == 0 and w == 0 and h == 0 then
+        return ""
+    end
+    local parts = {}
+    if e > 0 then table.insert(parts, "E:" .. e) end
+    if w > 0 then table.insert(parts, "W:" .. w) end
+    if h > 0 then table.insert(parts, "H:" .. h) end
+    return " [" .. table.concat(parts, " ") .. "]" .. " "
+end
+
 _G.copilot_enabled = false
 
 _G.LspStatus = function()
@@ -75,4 +90,4 @@ jj_refresh()
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, { callback = jj_refresh })
 
-vim.opt.statusline = " %f %m%r%h%w%=%{v:lua.LspStatus()}%{v:lua.JjStatus()}%y  %l:%c  %p%% "
+vim.opt.statusline = " %f %m%r%h%w%=%{v:lua.DiagStatus()}%{v:lua.LspStatus()}%{v:lua.JjStatus()}%y  %l:%c  %p%% "
