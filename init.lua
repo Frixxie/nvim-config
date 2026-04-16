@@ -1,5 +1,4 @@
 local gh = function(x) return "https://github.com/" .. x end
-hlsearch
 
 
 -- Run TSUpdate after treesitter is installed or updated

@@ -42,21 +42,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-vim.lsp.config("*", {
-    capabilities = blink_capabilities,
-})
-
-vim.lsp.enable({
+local servers = {
     "ts_ls",
     "clangd",
     "ruff",
     "pyright",
-    "omnisharp",
+    "csharp_ls",
     "hls",
     "rust_analyzer",
     "tinymist",
     "harper_ls",
-})
+}
+
+for _, server in ipairs(servers) do
+    vim.lsp.config(server, {
+        capabilities = blink_capabilities,
+    })
+end
+
+vim.lsp.enable(servers)
 
 
 function ToggleCopilot()
