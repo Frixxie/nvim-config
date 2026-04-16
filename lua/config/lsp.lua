@@ -58,7 +58,6 @@ vim.lsp.enable({
     "harper_ls",
 })
 
-vim.lsp.inline_completion.enable()
 
 function ToggleCopilot()
     local clients = vim.lsp.get_clients({ name = "copilot" })
@@ -66,9 +65,13 @@ function ToggleCopilot()
         for _, client in ipairs(clients) do
             client:stop()
         end
+        _G.copilot_enabled = false
+        vim.lsp.inline_completion.enable(false)
         vim.notify("Copilot disabled")
     else
         vim.lsp.enable("copilot")
+        vim.lsp.inline_completion.enable()
+        _G.copilot_enabled = true
         vim.notify("Copilot enabled")
     end
 end

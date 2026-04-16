@@ -1,9 +1,5 @@
 local gh = function(x) return "https://github.com/" .. x end
 
--- Disable copilot.vim's built-in completions (using native LSP inline completion instead)
-vim.g.copilot_filetypes = { ["*"] = false }
-vim.g.copilot_no_maps = true
-
 -- Run TSUpdate after treesitter is installed or updated
 vim.api.nvim_create_autocmd("PackChanged", {
     callback = function(ev)
@@ -18,9 +14,9 @@ vim.pack.add({
     gh("rebelot/kanagawa.nvim"),
     gh("stevearc/oil.nvim"),
     gh("ibhagwan/fzf-lua"),
-    gh("github/copilot.vim"),
     gh("rafamadriz/friendly-snippets"),
     { src = gh("saghen/blink.cmp"), version = "v1.10.2" },
+    gh("neovim/nvim-lspconfig"),
     gh("williamboman/mason.nvim"),
     gh("nvim-treesitter/nvim-treesitter"),
     gh("mistweaverco/kulala.nvim"),

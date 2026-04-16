@@ -52,19 +52,18 @@ _G.JjStatus = function()
     return s .. " "
 end
 
+_G.copilot_enabled = false
+
 _G.LspStatus = function()
     local clients = vim.lsp.get_clients({ bufnr = 0 })
     local names = {}
-    local has_copilot = false
     for _, client in ipairs(clients) do
-        if client.name == "copilot" or client.name == "GitHub Copilot" then
-            has_copilot = true
-        else
+        if client.name ~= "copilot" and client.name ~= "GitHub Copilot" then
             table.insert(names, client.name)
         end
     end
 
-    local copilot_indicator = has_copilot and " [copilot]" or ""
+    local copilot_indicator = _G.copilot_enabled and " [copilot]" or ""
     if #names == 0 then
         return " lsp:none" .. copilot_indicator .. " "
     end
