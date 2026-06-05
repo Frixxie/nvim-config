@@ -28,6 +28,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 
 vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+vim.opt.grepformat = "%f:%l:%c:%m"
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = { "*.cs" },

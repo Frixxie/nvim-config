@@ -7,6 +7,12 @@ vim.keymap.set("n", "<leader>p", ":FzfLua files<cr>", {})
 vim.keymap.set("n", "<leader>co", ":copen<cr>", {})
 vim.keymap.set("n", "<leader>cn", ":cnext<cr>", {})
 vim.keymap.set("n", "<leader>cp", ":cprev<cr>", {})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "qf",
+    callback = function(args)
+        vim.keymap.set("n", "<CR>", "<CR>", { buffer = args.buf, remap = true })
+    end,
+})
 vim.keymap.set("n", "<leader>Rs", function()
     require("kulala").run()
 end, {})
