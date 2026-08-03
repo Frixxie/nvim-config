@@ -47,7 +47,7 @@ local servers = {
     "clangd",
     "ruff",
     "pyright",
-    "omnisharp",
+    "csharp_ls",
     "hls",
     "rust_analyzer",
     "tinymist",
