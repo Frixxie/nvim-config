@@ -55,3 +55,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
+
+vim.api.nvim_create_user_command("PackUpdate", function()
+    vim.pack.update()
+end, {})
+
+vim.api.nvim_create_user_command("PackDel", function(opts)
+    vim.pack.del({ opts.args })
+end, { nargs = 1 })
