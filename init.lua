@@ -20,8 +20,7 @@ vim.pack.add({
     { src = gh("saghen/blink.cmp"), version = "main" },
     gh("neovim/nvim-lspconfig"),
     gh("williamboman/mason.nvim"),
-    gh("nvim-treesitter/nvim-treesitter"),
-    gh("mistweaverco/kulala.nvim"),
+    gh("nvim-treesitter/nvim-treesitter")
 })
 
 vim.cmd.packadd("nvim.undotree")

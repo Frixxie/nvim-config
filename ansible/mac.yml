@@ -1,0 +1,66 @@
+---
+- name: Set up Homebrew packages on macOS
+  hosts: localhost
+  connection: local
+  become: false
+  gather_facts: true
+  vars_files:
+    - packages.yml
+  environment:
+    PATH: "/opt/homebrew/bin:/usr/local/bin:{{ lookup('ansible.builtin.env', 'PATH') }}"
+
+  pre_tasks:
+    - name: Require macOS
+      ansible.builtin.assert:
+        that: ansible_facts['system'] == 'Darwin'
+        fail_msg: This playbook only supports macOS.
+
+    - name: Check whether Homebrew is installed
+      ansible.builtin.command: brew --version
+      register: homebrew_check
+      changed_when: false
+      failed_when: false
+      check_mode: false
+
+    - name: Require Homebrew
+      ansible.builtin.assert:
+        that: homebrew_check.rc == 0
+        fail_msg: Install Homebrew from https://brew.sh before running this playbook.
+
+  tasks:
+    - name: Add Homebrew taps
+      community.general.homebrew_tap:
+        name: "{{ homebrew_taps }}"
+        state: present
+
+    - name: Install command-line programs
+      community.general.homebrew:
+        name: "{{ homebrew_formulae }}"
+        state: present
+        update_homebrew: false
+        upgrade_all: false
+
+    - name: Find the Homebrew prefix
+      ansible.builtin.command: brew --prefix
+      register: homebrew_prefix
+      changed_when: false
+      check_mode: false
+
+    # --force permits linking keg-only formulae; it does not overwrite conflicts.
+    - name: Link explicitly linked formulae
+      ansible.builtin.command:
+        argv:
+          - brew
+          - link
+          - --force
+          - "{{ item }}"
+        creates: "{{ homebrew_prefix.stdout }}/var/homebrew/linked/{{ item }}"
+      loop: "{{ homebrew_linked_formulae }}"
+
+    - name: Install applications and fonts
+      community.general.homebrew_cask:
+        name: "{{ homebrew_casks }}"
+        state: present
+        update_homebrew: false
+        upgrade_all: false
+        sudo_password: "{{ ansible_become_password | default(omit) }}"

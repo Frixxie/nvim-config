@@ -1,0 +1,55 @@
+---
+# Captured from `brew bundle dump --file=-` on 2026-09-28.
+# Dependencies are resolved by Homebrew rather than listed individually.
+homebrew_taps:
+  - fluxcd/tap
+
+homebrew_formulae:
+  - python@3.14
+  - azure-cli
+  - bash
+  - btop
+  - deno
+  - elm
+  - fd
+  - fish
+  - fzf
+  - gh
+  - git
+  - go
+  - helm
+  - imagemagick
+  - jj
+  - just
+  - k9s
+  - kompose
+  - kubernetes-cli
+  - luarocks
+  - neovim
+  - node
+  - ollama
+  - ripgrep
+  - opencode
+  - pandoc
+  - pkgconf
+  - plantuml
+  - pnpm
+  - sdl3
+  - tmux
+  - uv
+  - watch
+  - wget
+  - zellij
+  - zoxide
+
+# Preserve explicit linking of keg-only formulae from the Homebrew export.
+homebrew_linked_formulae:
+  - postgresql@18
+
+homebrew_casks:
+  - dbeaver-community
+  - firefox
+  - font-inconsolata-lgc-nerd-font
+  - git-credential-manager
+  - macfuse
+  - spotify
