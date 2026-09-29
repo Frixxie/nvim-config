@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 
 vim.pack.add({
     gh("echasnovski/mini.nvim"),
-    gh("rebelot/kanagawa.nvim"),
+    gh("navarasu/onedark.nvim"),
     gh("stevearc/oil.nvim"),
     gh("ibhagwan/fzf-lua"),
     gh("rafamadriz/friendly-snippets"),
@@ -29,7 +29,8 @@ vim.cmd.packadd("nvim.difftool")
 require("options")
 require("keybindings")
 
-require("kanagawa").load("wave")
+require("onedark").setup({ style = "dark" })
+require("onedark").load()
 
 require("config/mini")
 require("config/oil")
