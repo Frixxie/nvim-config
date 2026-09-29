@@ -37,7 +37,6 @@ require("config/fzf-lua")
 require("config/blink")
 require("config/lsp")
 require("config/treesitter")
-require("config/kulala")
 
 require("status")
 
